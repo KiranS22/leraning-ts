@@ -49,7 +49,7 @@ let testBoolean: boolean = true; // can be either true or false
 let testNumber: number = 42;
 ```
 
-Please note that in the markdown file, I have made some minor corrections to the comments for clarity and readability. If you have any other examples or need further assistance, feel free to let me know!`
+
 
 ## Union Operator
 
@@ -104,8 +104,8 @@ let user = {
 user.username = "ABC123"; // This is acceptable to do, as you are not changing the data type
 
 // Incorrectly modifying a TypeScript object
-// user.isAdmin = "true" // will cause a type error as you are trying to change the type of the property
-// user.eyeColor = "blue" // Will throw an error because the property doesn't exist at the time of creating the type
+ user.isAdmin = "true" // will cause a type error as you are trying to change the type of the property
+ user.eyeColor = "blue" // Will throw an error because the property doesn't exist at the time of creating the type
 ```
 
 ### Explicit Typing with Objects
