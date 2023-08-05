@@ -1,24 +1,17 @@
 import React from "react";
 import PostCard from "../PostCard/PostCard";
+import { PostProps } from "../../types/types";
 
-const PostList = async () => {
-  async function getData() {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+interface PostListProps {
+  data: PostProps[];
+}
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
-  }
-  const data = await getData();
-
+const PostList: React.FC<PostListProps> = ({ data }) => {
   return (
-    <div>
- 
-      {data.map((post: { id: number; title: string; body: string }) => {
-        <PostCard key={post.id} title={post.title} body={post.body} />;
-      })}
+    <div className="postList">
+      {data.map((post) => (
+        <PostCard key={post.id} {...post} />
+      ))}
     </div>
   );
 };
