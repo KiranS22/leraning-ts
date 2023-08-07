@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
-import Greet from '../Greet/Greet';
+import "./../../resources/App.css";
+import Greet from "../Greet/Greet";
 
 function App() {
   return (
     <div className="App">
-      <Greet/>
-
+      <Greet />
     </div>
   );
 }
