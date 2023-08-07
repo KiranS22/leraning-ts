@@ -34,6 +34,6 @@ On the other hand, `App.tsx` is the root component, responsible for rendering yo
 
 The `.tsx` extension indicates that you are writing code within a TypeScript-React codebase. If you were to use `.js` or `.jsx` extensions, the app would throw errors.
 
- Although these components may look like regular components, the App component has the type of a function that has the return type of a JSX element. TypeScript infers the type of the App component for us.
+ Although these components may look like regular components, the App component has the type of a function that has the return type of a JSX element. TypeScript infers the type of the App component for us.(Type inferance)
 
 ![An image showing a React-TypeScript App component's return type ](./images//react-ts-app.png)
