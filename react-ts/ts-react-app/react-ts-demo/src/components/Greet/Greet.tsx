@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const Greet = () => {
-  return (
-    <div>
-      <h2> Welcome, you have 10 unread messages</h2>
-    </div>
-  )
+interface GreetProps {
+  name: string;
 }
 
-export default Greet
+const Greet = (props: GreetProps) => {
+  return (
+    <div>
+      <h2> Welcome,{props.name} you have 10 unread messages</h2>
+    </div>
+  );
+};
+
+export default Greet;
+
+
+

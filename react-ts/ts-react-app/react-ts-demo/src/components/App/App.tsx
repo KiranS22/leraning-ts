@@ -6,9 +6,10 @@ import Greet from "../Greet/Greet";
 function App() {
   return (
     <div className="App">
-      <Greet />
+      <Greet name="Kiran" />
     </div>
   );
 }
 
 export default App;
+
