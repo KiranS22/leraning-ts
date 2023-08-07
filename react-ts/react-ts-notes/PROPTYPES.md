@@ -2,7 +2,7 @@
 
 # React-TypeScript: Passing Different Prop Types
 
-In React with TypeScript, we have explored how to pass strings as props. However, we can also pass props of various data types. In this guide, we will learn how to pass different data types as props and handle them correctly. We'll achieve this by passing a new prop from the `Greet` component rendered in the `App` component, updating the `GreetProps` interface accordingly, and handling the new prop in the child component.
+In React with TypeScript, we have explored how to pass strings as props. However, we can also pass props of various data types. In this guide, we will learn how to pass different data types as props and handle them correctly. We'll achieve this by passing different types of props to our components and ensuring proper type handling.
 
 ## Parent Component (App.tsx)
 
@@ -10,11 +10,17 @@ In React with TypeScript, we have explored how to pass strings as props. However
 import React from "react";
 import "./../../resources/App.css";
 import Greet from "../Greet/Greet";
+import Person from "../Person/Person";
 
 function App() {
+  const personName = {
+    first: "Bruce ",
+    last: "Wayne"
+  };
   return (
     <div className="App">
-      <Greet name="Kiran" messageCount={15} />
+      <Greet name={"Kiran"} messageCount={15} isLoggedIn={false} />
+      <Person personName={personName} />
     </div>
   );
 }
@@ -22,9 +28,9 @@ function App() {
 export default App;
 ```
 
-In the `App` component, we are rendering the `Greet` component and passing two props: `name` (a string) and `messageCount` (a number).
+In the `App` component, we are rendering the `Greet` and `Person` components and passing different types of props: `name` (string), `messageCount` (number), and `isLoggedIn` (boolean) to `Greet`, and `personName` (an object) to `Person`.
 
-## Child Component (Greet.tsx)
+## Greet Component (Greet.tsx)
 
 ```tsx
 import React from "react";
@@ -32,27 +38,51 @@ import React from "react";
 interface GreetProps {
   name: string;
   messageCount: number;
+  isLoggedIn: boolean;
 }
 
 const Greet = (props: GreetProps) => {
   return (
-    <div>
-      <h2> Welcome, {props.name}! You have {props.messageCount} unread messages</h2>
-    </div>
+    <>
+      {props.isLoggedIn ? (
+        <div>
+          <h2> Welcome, {props.name}! You have {props.messageCount} unread messages</h2>
+        </div>
+      ) : (
+        "Welcome Guest"
+      )}
+    </>
   );
 };
 
 export default Greet;
 ```
 
-In the `Greet` component, we have updated the `GreetProps` interface to include the new prop `messageCount` of type `number`. We are now able to access both `name` and `messageCount` props and use them in our component.
+In the `Greet` component, we have added a new prop `isLoggedIn` of type `boolean`. Depending on whether the user is logged in or not, a welcome message or "Welcome Guest" is displayed.
 
-Please note that TypeScript may generate errors if:
-- You have not properly defined the `App` component in the parent.
-- You have not defined the correct types for the `props` object in the child component.
-- You have not updated the `GreetProps` interface to include the new prop.
-- You define a prop as one data type but use a different data type.
+## Person Component (Person.tsx)
 
-Once you have passsed your pr ops you can use the like ou would in a vanilla react component
+```tsx
+import React from "react";
 
+interface PersonProps {
+  personName: {
+    first: string;
+    last: string;
+  };
+}
 
+const Person = (props: PersonProps) => {
+  return (
+    <div>
+      <p>
+        {props.personName.first} {props.personName.last}
+      </p>
+    </div>
+  );
+};
+
+export default Person;
+```
+
+In the `Person` component, we receive an object prop `personName` with `first` and `last` properties. The component displays the person's full name.

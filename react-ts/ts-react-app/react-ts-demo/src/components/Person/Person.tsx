@@ -1,7 +1,20 @@
 import React from "react";
+interface PersonProps {
+  personName: {
+    first: string;
+    last: string;
+  };
+}
+const Person = (props: PersonProps) => {
+  return (
+    <div>
+      <p>
+        {props.personName.first} 
 
-const Person = () => {
-  return <div>Bruce Wayne</div>;
+        {props.personName.last}
+      </p>
+    </div>
+  );
 };
 
 export default Person;
