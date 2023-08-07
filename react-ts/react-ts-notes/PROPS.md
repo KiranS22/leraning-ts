@@ -96,7 +96,7 @@ const Greet = (props: GreetProps) => {
 export default Greet;
 ```
 
-By establishing the `GreetProps` interface, we outline the structure of the `props` object. In this case, the `name` prop must be a string.
+By establishing the `GreetProps` interface, we outline the structure of the `props` object. In this case, the `name` prop must be a string. Psssing in any other data type such as `number` or `boolean` will result in TypeScript throwing an error.
 
 ## Type vs Interface
 
