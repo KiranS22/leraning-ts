@@ -115,4 +115,4 @@ Remember, the decision to employ `type` or `interface` rests on your team's codi
 
 By adhering to these steps and principles, you can proficiently pass and define props within a React application using TypeScript, thereby ensuring type safety and fostering more reliable code.
 
-For more information, see my notes on [TypeScript Type Aliases](./ts-for-beginners/ALIASES.md) and [TypeScript Interfaces](./ts-for-beginners/INTERFACES.md)
+For more information, see my notes on [TypeScript Type Aliases](./../../ts-for-beginners/ALIASES.md) and [TypeScript Interfaces](././../../ts-for-beginners/INTERFACES.md)

@@ -1,39 +1,34 @@
-
-
 # React-TypeScript: Passing Different Prop Types
 
-In React with TypeScript, we have explored how to pass strings as props. However, we can also pass props of various data types. In this guide, we will learn how to pass different data types as props and handle them correctly. We'll achieve this by passing different types of props to our components and ensuring proper type handling.
+In the  [previous file](./PROPS.md), we explored passing strings as props. Let's now delve into passing different data types as props in a React application with TypeScript.
 
-## Parent Component (App.tsx)
+## Passing Numbers as Props
+
+When dealing with numeric data, you can pass numbers as props to your components. Here's an example using the `Greet` component:
 
 ```tsx
-import React from "react";
-import "./../../resources/App.css";
-import Greet from "../Greet/Greet";
-import Person from "../Person/Person";
+
 
 function App() {
-  const personName = {
-    first: "Bruce ",
-    last: "Wayne"
-  };
+
+
   return (
     <div className="App">
+
       <Greet name={"Kiran"} messageCount={15} isLoggedIn={false} />
-      <Person personName={personName} />
+
     </div>
   );
 }
 
-export default App;
 ```
 
-In the `App` component, we are rendering the `Greet` and `Person` components and passing different types of props: `name` (string), `messageCount` (number), and `isLoggedIn` (boolean) to `Greet`, and `personName` (an object) to `Person`.
-
-## Greet Component (Greet.tsx)
+In the `Greet` component, the prop `messageCount` is defined as a number:
 
 ```tsx
-import React from "react";
+// Greet.tsx
+
+
 
 interface GreetProps {
   name: string;
@@ -44,13 +39,17 @@ interface GreetProps {
 const Greet = (props: GreetProps) => {
   return (
     <>
+
       {props.isLoggedIn ? (
         <div>
-          <h2> Welcome, {props.name}! You have {props.messageCount} unread messages</h2>
+          <h2>
+            Welcome, {props.name} you have {props.messageCount} unread messages
+          </h2>
         </div>
       ) : (
-        "Welcome Guest"
+        "welcome Guest"
       )}
+
     </>
   );
 };
@@ -58,12 +57,41 @@ const Greet = (props: GreetProps) => {
 export default Greet;
 ```
 
-In the `Greet` component, we have added a new prop `isLoggedIn` of type `boolean`. Depending on whether the user is logged in or not, a welcome message or "Welcome Guest" is displayed.
+## Passing Objects as Props
 
-## Person Component (Person.tsx)
+You can also pass objects as props to components. Consider the `Person` component:
 
 ```tsx
-import React from "react";
+
+
+
+
+function App() {
+
+
+  const personName = {
+    first: "Bruce ",
+    last: "Wayne",
+  };
+
+  return (
+    <div className="App">
+
+      <Person personName={personName} />
+
+    </div>
+  );
+}
+
+
+```
+
+In the `Person` component, we're passing an object `personName`:
+
+```tsx
+
+
+
 
 interface PersonProps {
   personName: {
@@ -81,8 +109,72 @@ const Person = (props: PersonProps) => {
     </div>
   );
 };
-
-export default Person;
 ```
 
-In the `Person` component, we receive an object prop `personName` with `first` and `last` properties. The component displays the person's full name.
+## Passing Arrays as Props
+
+Arrays can also be passed as props. Let's look at the `PersonList` component:
+
+```tsx
+
+
+function App() {
+
+
+  const peopleList = [
+    {
+      first: "John",
+      last: "Doe",
+    },
+    {
+      first: "Jane",
+      last: "Smith",
+    },
+    {
+      first: "Michael",
+      last: "Johnson",
+    },
+  ];
+
+  return (
+    <div className="App">
+
+      <PersonList names={peopleList} />
+
+    </div>
+  );
+}
+
+
+```
+
+In the `PersonList` component, we're passing an array of objects:
+
+```tsx
+// PersonList.tsx
+
+
+interface PersonListProps {
+  names: { first: string; last: string }[];
+}
+
+const PersonList = (props: PersonListProps) => {
+  return (
+    <>
+      {props.names.map((person) => (
+        <li>
+          {person.first} {person.last}
+        </li>
+      ))}
+    </>
+  );
+};
+
+export default PersonList;
+```
+
+## Passing Booleans as Props
+
+Booleans can also be passed as props to components. In the `Greet` component example above, the prop `isLoggedIn` is a boolean that determines whether to display a welcome message or "welcome Guest."
+
+By following these examples, you can effectively pass different data types—strings, numbers, objects, arrays, and booleans—as props in a React application using TypeScript. This flexibility enhances your components' capabilities and enables you to create more dynamic and interactive user interfaces.

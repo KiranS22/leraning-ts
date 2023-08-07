@@ -1,9 +1,19 @@
-import React from 'react'
-
-const PersonList = () => {
-  return (
-    <div>PersonList</div>
-  )
+import React from "react";
+interface PersonListProps {
+  names: { first: string; last: string }[];
 }
 
-export default PersonList
+const PersonList = (props: PersonListProps) => {
+  return (
+    <>
+      {props.names.map((person) => {
+        <li>
+          {" "}
+          {person.first} {person.last}
+        </li>;
+      })}
+    </>
+  );
+};
+
+export default PersonList;
