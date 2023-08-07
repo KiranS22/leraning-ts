@@ -8,7 +8,7 @@ I'm navigating through learning TypeScript by:
 - Writing notes to explain the code that the YouTube video is going through using a mix of comments and code.
 - Converting these TypeScript files into Markdown documents so both myself and others can easily read and follow my notes.
 
-The topics I have covered so far are:
+The topics I have covered are:
 
 ### Vanilla TypeScript Basics
 
@@ -20,4 +20,9 @@ The topics I have covered so far are:
 
 ### TypeScript with React
 
-To learn TypeScript with React, I decided to work through a [React-TypeScript Course](https://www.youtube.com/playlist?list=PLC3y8-rFHvwi1AXijGTKM0BKtHzVC-LSK) so that I can go through the fundamentals in detail.
+As I proceed to embrace TypeScript within the context of React, I have chosen to navigate through an extensive [React-TypeScript Course](https://www.youtube.com/playlist?list=PLC3y8-rFHvwi1AXijGTKM0BKtHzVC-LSK). This deliberate approach ensures a comprehensive grasp of the fundamentals.
+
+The topics I have covered are:
+
+- [Passing Strings as Props](./react-ts/react-ts-notes/PROPS.md)
+- [Passing Various Data Types as Props](./react-ts/react-ts-notes/PROPTYPES.md)
